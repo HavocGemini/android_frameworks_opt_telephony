@@ -2841,6 +2841,7 @@ public class ImsPhoneCallTracker extends CallTracker implements ImsPullCall {
                     if (mIsViLteDataMetered) {
                         conn.setVideoEnabled(mIsDataEnabled);
                     }
+
                     if (mNotifyHandoverVideoFromWifiToLTE && mIsDataEnabled) {
                         if (conn.getDisconnectCause() == DisconnectCause.NOT_DISCONNECTED) {
                             log("onCallHandover :: notifying of WIFI to LTE handover.");

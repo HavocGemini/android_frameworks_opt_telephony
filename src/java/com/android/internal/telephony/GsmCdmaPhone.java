@@ -624,6 +624,17 @@ public class GsmCdmaPhone extends Phone {
         }
     }
 
+    //CDMA
+    private void sendEmergencyCallbackModeChange(){
+        //Send an Intent
+        Intent intent = new Intent(TelephonyIntents.ACTION_EMERGENCY_CALLBACK_MODE_CHANGED);
+        intent.putExtra(PhoneConstants.PHONE_IN_ECM_STATE, isInEcm());
+        SubscriptionManager.putPhoneIdAndSubIdExtra(intent, getPhoneId());
+        ActivityManager.broadcastStickyIntent(intent, UserHandle.USER_ALL);
+        logi("sendEmergencyCallbackModeChange");
+    }
+
+    @Override
     public void sendEmergencyCallStateChange(boolean callActive) {
         if (!isPhoneTypeCdma()) {
             // It possible that this method got called from ImsPhoneCallTracker#

@@ -373,7 +373,7 @@ public class ImsSmsDispatcher extends SMSDispatcher {
             getImsManager().sendSms(
                     token,
                     tracker.mMessageRef,
-                    getFormat(),
+                    format,
                     smsc != null ? IccUtils.bytesToHexString(smsc) : null,
                     isRetry,
                     pdu);
